@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">LoLWikipedia</string>
+    <string name="tab_text_1">Champions</string>
+    <string name="tab_text_2">Items</string>
+    <string name="tab_text_3">Statistics</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="tab_text_4">Current Events</string>
+</resources>
