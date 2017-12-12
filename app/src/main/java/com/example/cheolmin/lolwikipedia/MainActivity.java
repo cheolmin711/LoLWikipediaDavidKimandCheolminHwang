@@ -15,15 +15,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.EditText;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
+    private ArrayList<Champion> champions;
+    private ArrayList<Item> items;
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -52,6 +49,15 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+        //initialize champions & items arraylist
+        champions = new ArrayList<>();
+        items = new ArrayList<>();
+        fillItemList();
+        fillChampionList();
+
+
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -70,18 +76,35 @@ public class MainActivity extends AppCompatActivity {
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
-                                    int position, long id) {
-                Intent amumu = new Intent(MainActivity.this, Main2Activity.class);
+                                    int position   , long id) {
+                Champion champion = champions.get(position);
+                //TODO put the whole Champion object as an extra to pass to the new activity
+
+                Intent champ = new Intent(MainActivity.this, Main2Activity.class);
                 String amumumsg = "amumu";
-                amumu.putExtra(amumumsg, keyIdendifier);
-                startActivity(amumu);
-                Toast.makeText(MainActivity.this, "Hello", Toast.LENGTH_SHORT).show();
+                champ.putExtra("ChampName", amumumsg);
+                startActivity(champ);
+
+                Champion champion1 = new Champion();
+                champion1.setDescription("Lonely mummy");
+                champion1.setName("Amumu");
+                champ.putExtra("info", champion1);
+                //champion1.setItems(//call item array list?);
+
+
 
                 //put extra to new activity and make only one acitivity.
                 //use position to differentitate between other champions clicks and send extra
             }
         });
 
+    }
+
+    private void fillItemList() {
+    }
+
+    private void fillChampionList() {
+        //champions.add(new Champion("Amumu"));
     }
 
 
