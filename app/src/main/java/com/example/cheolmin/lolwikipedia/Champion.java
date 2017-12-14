@@ -14,13 +14,16 @@ public class Champion implements Parcelable{
     private ArrayList<Item> items;
     //TODO: make Champion Parcelable
 
-    public Champion(){
+    public Champion(String aatrox, String description, Item item){
         super();
     }
 
     public String getName() {
         return name;
     }
+
+    public String getDescription(){return description;}
+
 
     public void setName(String name) {
         this.name = name;

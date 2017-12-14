@@ -13,6 +13,9 @@ public class Item implements Parcelable {
 
     //TODO make item parcelable
 
+    public Item (String name, int imageId){super();
+    }
+
     protected Item(Parcel in) {
         name = in.readString();
         imageId = in.readInt();
@@ -22,6 +25,14 @@ public class Item implements Parcelable {
     public int describeContents() {
         return 0;
     }
+
+    public int getImageId(){return imageId;}
+
+    public void setImageId(int id){imageId= id;}
+
+    public void setName(String n){name = n;}
+
+    public String getName(){return name;}
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {

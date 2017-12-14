@@ -23,7 +23,7 @@ public class Main2Activity extends AppCompatActivity {
 
         if(bundle.getString("ChampName")!= "amumusquare");
         {
-            Toast.makeText(this, "correct", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, c.getName(), Toast.LENGTH_SHORT).show();
 
             //here get the string stored in the string variable and do
             // setText() on userName
